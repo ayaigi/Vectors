@@ -9,6 +9,10 @@ class Plane(plane: PlaneInterface) {
     private val normal: NormalPlane
     private val coor: CoordinatesPlane
 
+    override fun toString(): String {
+        return "N= " + normalVector() + "; S= " + para.support
+    }
+
     companion object {
         fun fromPoints(
             a: Vector,

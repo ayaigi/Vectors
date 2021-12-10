@@ -4,6 +4,10 @@ import kotlin.math.*
 
 data class Vector(val x: Float, val y: Float, val z: Float) {
 
+    override fun toString(): String {
+        return "x: ${x.format2()}, y: ${y.format2()}, z: ${z.format2()}"
+    }
+
     constructor(x: Int, y: Int, z: Int) : this(x.toFloat(), y.toFloat(), z.toFloat())
 
     companion object {
@@ -34,10 +38,14 @@ data class Vector(val x: Float, val y: Float, val z: Float) {
     }
 
     fun crossProduct(v: Vector): Vector {
+        val _x = v.y * z - v.z * y
+        val _y =v.z * x - v.x * z
+        val _z = v.x * y - v.y * x
+        val l = true
         return Vector(
             x = v.y * z - v.z * y,
             y = v.z * x - v.x * z,
-            z = v.y * z - v.z * y
+            z = v.x * y - v.y * x
         )
     }
 
